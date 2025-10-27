@@ -5,15 +5,17 @@ import { arcjetProtection } from '../middleware/arcjet.middleware.js';
 
 const router = express.Router();
 
-router.post('/signup', arcjetProtection, signup);
+router.use(arcjetProtection);       
 
-router.post('/login', arcjetProtection, login);
+router.post('/signup', signup);
 
-router.post('/logout', arcjetProtection, logout);
+router.post('/login', login);
 
-router.put('/update-profile', arcjetProtection, protectRoute, updateProfile);
+router.post('/logout', logout);
 
-router.get('/check', arcjetProtection, protectRoute, (req, res) => {
+router.put('/update-profile', protectRoute, updateProfile);
+
+router.get('/check', protectRoute, (req, res) => {
     res.status(200).json({ message: "User is authenticated", user: req.user });
 });
 
