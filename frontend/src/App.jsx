@@ -6,7 +6,7 @@ import SignUpPage from './pages/SignUpPage'
 import { useAuthStore } from './store/useAuthStore.js'
 import { useEffect } from 'react'
 import PageLoader from './components/PageLoader.jsx'
-
+import {Toaster} from 'react-hot-toast';
 
 export default function App() {
         
@@ -21,7 +21,7 @@ export default function App() {
   if (isCheckingAuth) return <PageLoader />;
   
   return (
-    <div className='min-h-screen bg-green-950 relative flex items-center justify-center p-4 overflow-hidden'>
+    <div className='min-h-screen bg-slate-950 relative flex items-center justify-center p-4 overflow-hidden'>
 
          {/* DECORATORS - GRID BG & GLOW SHAPES */}
 
@@ -35,6 +35,10 @@ export default function App() {
       <Route path="/login" element={authUser ? <Navigate to="/" /> : <LoginPage />} />
       <Route path="/signup" element={authUser ? <Navigate to="/" /> : <SignUpPage />} />
     </Routes>
+
+    <Toaster />
+
+    <div></div>
     </div>
   )
 }
