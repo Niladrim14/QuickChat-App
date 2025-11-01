@@ -111,8 +111,13 @@ export const login = async (req, res) => {
 
 // User Logout with Cookie Clearance
 export const logout = (_, res) => {
-  res.cookie("jwt", "", { maxAge: 0 });
-  res.status(200).json({ messege: "Logged out sucessfully" });
+  res.cookie("jwt", "", { 
+    maxAge: 0,
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict"
+  });
+  res.status(200).json({ message: "Logged out successfully" });
 };
 
 // Update User Profile with Cloudinary
