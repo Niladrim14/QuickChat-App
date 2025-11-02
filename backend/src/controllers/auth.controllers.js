@@ -125,7 +125,7 @@ export const updateProfile = async (req, res) => {
   try {
     const { profilePic } = req.body;
     if (!profilePic)
-      return req.status(400).json({ message: "Profile pic is required " });
+      return res.status(400).json({ message: "Profile pic is required " });
     // Get user ID from authenticated request from middleware next function
     const userId = req.user._id;
 
