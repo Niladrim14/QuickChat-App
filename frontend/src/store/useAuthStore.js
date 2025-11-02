@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { axiosInstance } from "../lib/axios";
+import { axiosInstance } from "../lib/axios.js";
 import { toast } from "react-hot-toast";
 
 export const useAuthStore = create((set) => ({
@@ -7,7 +7,7 @@ export const useAuthStore = create((set) => ({
   isCheckingAuth: true,
   isSigningUp: false,
   isLoggingIn: false,
- 
+  isUpdatingProfile: false,
 
   checkAuth: async () => {
     try {
@@ -28,7 +28,9 @@ export const useAuthStore = create((set) => ({
       toast.success("Welcome! Your account has been created successfully");
     } catch (error) {
       console.error("Signup error:", error);
-      const errorMessage = error.response?.data?.message || "Failed to create account. Please try again";
+      const errorMessage =
+        error.response?.data?.message ||
+        "Failed to create account. Please try again";
       toast.error(errorMessage);
     } finally {
       set({ isSigningUp: false });
@@ -42,7 +44,8 @@ export const useAuthStore = create((set) => ({
       toast.success("Login successful");
     } catch (error) {
       console.error("Login error:", error);
-      const errorMessage = error.response?.data?.message || "Failed to login. Please try again";
+      const errorMessage =
+        error.response?.data?.message || "Failed to login. Please try again";
       toast.error(errorMessage);
     } finally {
       set({ isLoggingIn: false });
@@ -58,5 +61,20 @@ export const useAuthStore = create((set) => ({
       toast.error("Failed to logout. Please try again");
     }
   },
-
+  updateProfile: async (data) => {
+    set({ isUpdatingProfile: true });
+    try {
+      const res = await axiosInstance.put("/auth/update-profile", data);
+      set({ authUser: res.data });
+      toast.success("Profile updated successfully");
+    } catch (error) {
+      console.error("Update profile error:", error);
+      const errorMessage =
+        error.response?.data?.message ||
+        "Failed to update profile. Please try again";
+      toast.error(errorMessage);
+    } finally {
+      set({ isUpdatingProfile: false });
+    }
+  },
 }));

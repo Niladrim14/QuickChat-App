@@ -22,11 +22,10 @@ export default function App() {
   
   return (
     <div className='min-h-screen bg-slate-950 relative flex items-center justify-center p-4 overflow-hidden'>
+        {/* BACKGROUND IMAGE */}
+      {/* <img src="/" alt="background" className="absolute inset-0 w-full h-full object-cover z-0" /> */}
 
-      {/* BACKGROUND IMAGE */}
-      <img src="/11742.webp" alt="background" className="absolute inset-0 w-full h-full object-cover z-0" />
-
-         {/* DECORATORS - GRID BG & GLOW SHAPES */}
+      {/* DECORATORS - GRID BG & GLOW SHAPES */}
 
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]" />
       <div className="absolute top-0 -left-4 size-96 bg-pink-500 opacity-20 blur-[100px]" />
