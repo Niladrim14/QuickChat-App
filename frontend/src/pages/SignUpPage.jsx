@@ -103,16 +103,12 @@ function SignUpPage() {
               <div className="hidden md:w-1/2 md:flex items-center justify-center p-6 bg-gradient-to-bl from-slate-800/20 to-transparent">
               <div>
                 <img
-                  src="/a97ueh.webp"
+                  src="/canva-green-illustration-cartoon-phone-wallpaper-8sdUjnzep8o.webp"
                   alt="People using mobile devices"
-                  className="w-full h-auto object-contain border border-spacing-0 border-black"
+                  className="w-full  h-auto object-contain border border-spacing-0 border-black"
                 />
-                <div className="mt-6 text-center">
-                  <h3 className="text-3xl font-bold text-emerald-400">Wanna Start?</h3>
-                  <div className="mt-4 flex justify-center gap-4">
-                   
-                  </div>
-                </div>
+                
+                
               </div>
             </div>
      

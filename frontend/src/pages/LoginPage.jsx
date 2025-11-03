@@ -92,16 +92,12 @@ function LoginPage() {
               <div className="hidden md:w-1/2 md:flex items-center justify-center p-6 bg-gradient-to-bl from-slate-800/20 to-transparent">
               <div>
                 <img
-                  src="/simple-login-meme-petition-v0-ue86o3bohheb1.webp"
+                  src="/canva-blue-illustration-cartoon-phone-wallpaper-Muj7uji0w4E.webp"
                   alt="People using mobile devices"
                   className="w-full h-auto object-contain border border-spacing-0 border-black"
                 />
-                <div className="mt-6 text-center">
-                  <h3 className="text-3xl font-bold text-emerald-400">Back to Us? I know You Will Love It Here!</h3>
-                  <div className="mt-4 flex justify-center gap-4">
-                   
-                  </div>
-                </div>
+               
+               
               </div>
             </div>
      
