@@ -97,7 +97,7 @@ function LoginPage() {
                   className="w-full h-auto object-contain border border-spacing-0 border-black"
                 />
                 <div className="mt-6 text-center">
-                  <h3 className="text-3xl font-bold text-cyan-400">Back to Us? I know You Will Love It Here!</h3>
+                  <h3 className="text-3xl font-bold text-emerald-400">Back to Us? I know You Will Love It Here!</h3>
                   <div className="mt-4 flex justify-center gap-4">
                    
                   </div>

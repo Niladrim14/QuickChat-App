@@ -83,7 +83,7 @@ function SignUpPage() {
                  
                 <button className="auth-btn" type="submit" disabled={isSigningUp}>
                     {isSigningUp ? (
-                      <LoaderIcon className="w-full h-5 animate-spin text-center" />
+                      <LoaderIcon className="w-full h-5 animate-spin text-center " />
                     ) : (
                       "Create Account"
                     )}
@@ -108,7 +108,7 @@ function SignUpPage() {
                   className="w-full h-auto object-contain border border-spacing-0 border-black"
                 />
                 <div className="mt-6 text-center">
-                  <h3 className="text-3xl font-bold text-cyan-400">Wanna Start?</h3>
+                  <h3 className="text-3xl font-bold text-emerald-400">Wanna Start?</h3>
                   <div className="mt-4 flex justify-center gap-4">
                    
                   </div>
