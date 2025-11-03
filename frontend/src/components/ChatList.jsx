@@ -21,7 +21,7 @@ function ChatsList() {
      {chats.map((chat) => (
         <div
           key={chat._id}
-          className="bg-cyan-500/10 p-4 rounded-lg cursor-pointer hover:bg-cyan-500/20 transition-colors"
+          className="bg-emerald-500/10 p-4 rounded-lg cursor-pointer hover:bg-emerald-500/20 transition-colors"
           onClick={() => setSelectedUser(chat)}
         >
           <div className="flex items-center gap-3">
