@@ -23,7 +23,7 @@ export default function App() {
   return (
     <div className='min-h-screen bg-slate-950 relative flex items-center justify-center p-4 overflow-hidden'>
         {/* BACKGROUND IMAGE */}
-      {/* <img src="/" alt="background" className="absolute inset-0 w-full h-full object-cover z-0" /> */}
+      {/* <img src="/" alt="background" className="absolute inset-0 w-full h-full object-cover z-0" /> */} 
 
       {/* DECORATORS - GRID BG & GLOW SHAPES */}
 

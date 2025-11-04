@@ -9,13 +9,16 @@ import MeassageInput from "./MeassageInput.jsx";
 import MessagesLoadingSkeleton from "./MessagesLoadingSkeleton.jsx";
 
 function ChatContainer() {
-  const {messages, selectedUser,getMessagesByUserId,isMessagesLoading} = useChatStore();
+  const {messages, selectedUser, getMessagesByUserId, isMessagesLoading, subscribeToMessages, unsubscribeFromMessages, subscribeToTyping, isTyping} = useChatStore();
   const {authUser} = useAuthStore();
   const messageEndRef = useRef(null);
   
   useEffect(() => {
     getMessagesByUserId(selectedUser._id);
-  }, [selectedUser, getMessagesByUserId]);
+    subscribeToMessages();
+    subscribeToTyping();
+    return () => { unsubscribeFromMessages(); };
+  }, [selectedUser._id, getMessagesByUserId, subscribeToMessages, unsubscribeFromMessages, subscribeToTyping]);
 
    useEffect(() => {
     if (messageEndRef.current) {
@@ -60,6 +63,19 @@ function ChatContainer() {
               
           ))}
           <div ref={messageEndRef}></div>
+          
+          {/* Typing Indicator */}
+          {isTyping && (
+            <div className="chat chat-start">
+              <div className="chat-bubble bg-slate-800 text-slate-200">
+                <div className="flex gap-1 items-center">
+                  <span className="w-2 h-2 bg-slate-400 rounded-full animate-bounce [animation-delay:-0.3s]"></span>
+                  <span className="w-2 h-2 bg-slate-400 rounded-full animate-bounce [animation-delay:-0.15s]"></span>
+                  <span className="w-2 h-2 bg-slate-400 rounded-full animate-bounce"></span>
+                </div>
+              </div>
+            </div>
+          )}
 
         </div>
         

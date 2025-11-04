@@ -100,13 +100,28 @@ function SignUpPage() {
        </div>
         {/* Right Side */ }
 
-              <div className="hidden md:w-1/2 md:flex items-center justify-center p-6 bg-gradient-to-bl from-slate-800/20 to-transparent">
-              <div>
+              <div className="hidden md:w-1/2 md:flex items-center justify-center p-6 bg-gradient-to-bl from-slate-800/20 to-transparent relative overflow-hidden">
+              <div className="relative group">
+                {/* Vignette overlay */}
+                <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-black/60 pointer-events-none z-10"></div>
+                
                 <img
                   src="/canva-green-illustration-cartoon-phone-wallpaper-8sdUjnzep8o.webp"
                   alt="People using mobile devices"
-                  className="w-full  h-auto object-contain border border-spacing-0 border-black"
+                  className="w-full h-auto object-contain grayscale contrast-125 sepia-[.15] 
+                  hover:grayscale-0 hover:sepia-0 transition-all duration-700 ease-in-out
+                  shadow-2xl shadow-black/50
+                  group-hover:scale-105 transform"
                 />
+                
+                {/* Film grain overlay */}
+                <div className="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=')] pointer-events-none"></div>
+                
+                {/* Bottom gradient fade */}
+                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-900 to-transparent pointer-events-none"></div>
+                
+              
+              
                 
                 
               </div>

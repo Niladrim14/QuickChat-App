@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState, useRef, useEffect} from "react";
 import useKeyboardSound from "../hooks/useKeyboardSound";
 import { useChatStore } from "../store/useChatstore";
 import toast from "react-hot-toast";
@@ -8,13 +8,20 @@ function MeassageInput() {
 const { playRandomKeyStrokeSound } = useKeyboardSound();
 const [text, setText] = useState("");
 const [imagePreview, setImagePreview] = useState(null);
-const fileInputRef = useState(null);
- const { sendMessage, isSoundEnabled } = useChatStore();
+const fileInputRef = useRef(null);
+const typingTimeoutRef = useRef(null);
+ const { sendMessage, isSoundEnabled, emitTyping, emitStopTyping } = useChatStore();
 
  const handleSendMessage = (e) => {
     e.preventDefault();
     if (!text.trim() && !imagePreview) return;
     if (isSoundEnabled) playRandomKeyStrokeSound();
+
+    // Stop typing indicator when sending
+    emitStopTyping();
+    if (typingTimeoutRef.current) {
+      clearTimeout(typingTimeoutRef.current);
+    }
 
     sendMessage({
       text: text.trim(),
@@ -24,6 +31,35 @@ const fileInputRef = useState(null);
     setImagePreview(null);
     if (fileInputRef.current) fileInputRef.current.value = "";
   };
+
+  const handleTextChange = (e) => {
+    setText(e.target.value);
+    if (isSoundEnabled) playRandomKeyStrokeSound();
+
+    // Emit typing event
+    emitTyping();
+
+    // Clear existing timeout
+    if (typingTimeoutRef.current) {
+      clearTimeout(typingTimeoutRef.current);
+    }
+
+    // Stop typing after 2 seconds of inactivity
+    typingTimeoutRef.current = setTimeout(() => {
+      emitStopTyping();
+    }, 2000);
+  };
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (typingTimeoutRef.current) {
+        clearTimeout(typingTimeoutRef.current);
+      }
+      emitStopTyping();
+    };
+  }, [emitStopTyping]);
+  
  const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (!file.type.startsWith("image/")) {
@@ -66,10 +102,7 @@ const fileInputRef = useState(null);
         <input
           type="text"
           value={text}
-          onChange={(e) => {
-            setText(e.target.value);
-            isSoundEnabled && playRandomKeyStrokeSound();
-          }}
+          onChange={handleTextChange}
           className="flex-1 bg-slate-800/50 border border-slate-700/50 rounded-lg py-2 px-4"
           placeholder="Type your message..."
         />
