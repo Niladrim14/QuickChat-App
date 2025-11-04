@@ -238,17 +238,17 @@ POST   /api/messages/send/:userId # Send message to user
 
 ## 🖼️ Screenshots
 
+### Chat Interface
+
+![Chat Interface](./frontend/public/Screenshot%20from%202025-11-05%2001-43-01.png)
+
 ### Login Page
 
-![Login Page](./frontend/public/Screenshot%20from%202025-11-05%2001-43-01.png)
+![Login Page](./frontend/public/Screenshot%20from%202025-11-05%2001-43-22.png)
 
 ### Sign Up Page
 
-![Sign Up Page](./frontend/public/Screenshot%20from%202025-11-05%2001-43-22.png)
-
-### Chat Interface
-
-![Chat Interface](./frontend/public/Screenshot%20from%202025-11-05%2001-43-28.png)
+![Sign Up Page](./frontend/public/Screenshot%20from%202025-11-05%2001-43-28.png)
 
 ---
 
