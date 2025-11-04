@@ -12,7 +12,7 @@ A modern, feature-rich real-time chat application with a beautiful emerald-theme
 [![Socket.io](https://img.shields.io/badge/Socket.io-4.8-010101?style=flat&logo=socket.io&logoColor=white)](https://socket.io/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-06B6D4?style=flat&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 
-[Features](#-features) • [Tech Stack](#-tech-stack) • [Installation](#-installation) • [Screenshots](#-screenshots) • [API Docs](#-api-documentation) • [Contributing](#-contributing)
+[Features](#-features) • [Tech Stack](#%EF%B8%8F-tech-stack) • [Installation](#-installation) • [Screenshots](#%EF%B8%8F-screenshots) • [API Docs](#-api-documentation) • [Contributing](#-contributing)
 
 </div>
 
@@ -240,15 +240,15 @@ POST   /api/messages/send/:userId # Send message to user
 
 ### Chat Interface
 
-![Chat Interface](./frontend/public/Screenshot%20from%202025-11-05%2001-43-01.png)
+![Chat Interface](frontend/public/Screenshot%20from%202025-11-05%2001-43-01.png)
 
 ### Login Page
 
-![Login Page](./frontend/public/Screenshot%20from%202025-11-05%2001-43-22.png)
+![Login Page](frontend/public/Screenshot%20from%202025-11-05%2001-43-22.png)
 
 ### Sign Up Page
 
-![Sign Up Page](./frontend/public/Screenshot%20from%202025-11-05%2001-43-28.png)
+![Sign Up Page](frontend/public/Screenshot%20from%202025-11-05%2001-43-28.png)
 
 ---
 
